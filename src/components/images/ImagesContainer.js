@@ -2,21 +2,33 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import { getAllImages } from '../../actions/ImagesAction'
+import CardImage from './CardImage';
 
 class ImagesContainer extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.props.getAllImages();
     }
 
     render() {
-        console.log(this.props);
+        const {
+            images: {
+                allImages: {
+                    images: imagesData = []
+                } = {}
+            } = {}
+        } = this.props;
+
         return (
             <div>
-                image day nha
+                {
+                    imagesData.map(image=>{
+                        return <CardImage imageData={image}/>
+                    })
+                }
             </div>
         );
     }
