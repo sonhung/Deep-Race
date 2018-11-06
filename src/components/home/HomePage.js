@@ -9,7 +9,7 @@ class HomePage extends Component {
         return (
             <div>
                 home page ne`
-                <ImagesContainner/>
+                {/* <ImagesContainner/> */}
             </div>
         );
     }
